@@ -2,19 +2,18 @@
     Libraries
  */
 import Vue from './lib/vue.esm.browser.js';
-import Vuex from './lib/vuex.esm.browser.js';
-import VueRouter from './lib/vue-router.esm.browser.js';
 import store from './lib/Store.js';
+import router from './lib/Router.js';
+
 /*
     Components
  */
-import LoginForm from './Components/LoginForm/LoginForm.js';
+import LoginForm from './Components/LoginForm.js';
 
 /*
     Bootstrap
  */
-Vue.use(Vuex);
-Vue.use(VueRouter);
+Vue.config.ignoredElements = [/^ion-/];
 
 new Vue({
     el: '#app',
@@ -22,5 +21,6 @@ new Vue({
         message: 'Hello Vue!'
     },
     store,
+    router,
     components: {LoginForm}
 });

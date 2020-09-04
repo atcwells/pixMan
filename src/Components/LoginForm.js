@@ -10,16 +10,18 @@ export default {
             return this.$store.state.count
         }
     },
-    template() {
-        const link = document.createElement('link');
-        link.rel = 'import';
-        link.href = 'LoginForm.html';
-        //link.onload = function(e) {...};
-        //link.onerror = function(e) {...};
-        document.head.appendChild(link);
-        const content = document.querySelector('link[rel="import"]').import;
-        return content;
-    },
+    template: `
+    <form>
+        <input type="text" name="username"/>
+        <input type="password" name="password"/>
+        <button type="submit">Login</button>
+         <p>{{ count }}</p>
+         <p>
+           <button type="button" @click="increment">+</button>
+           <button type="button" @click="decrement">-</button>
+         </p>
+    </form>
+    `,
     methods: {
         increment() {
             this.$store.commit('increment')
